@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Part 2, Lecture 1, Example 1
 
@@ -22,7 +23,10 @@ def argmax(values):
     """
 
     N = len(values)
-
+    
+    if N == 0:
+        raise ValueError("Empty sequence are not supported")
+    
     imax = 0
     vmax = values[0]
 
@@ -43,6 +47,11 @@ def main():
     # Use argmax() to locale the maximum
     imax, vmax = argmax(values)
     print(f'Max. value is {vmax} located at index {imax}')
+    
+    try:
+        argmax([])
+    except ValueError:
+        print("Error encountered")
 
 if __name__ == '__main__':
     main()
